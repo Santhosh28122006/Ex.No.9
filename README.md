@@ -1,7 +1,7 @@
 # Ex.No.9 Exploration of Prompting Techniques for Video Generation
 
-# Date:
-# Reg. No.:
+# Date:24/05/2026
+# Reg. No.: 212224230251
 
 # Aim:
 To demonstrate the ability of text-to-Video generation tools to reproduce an existing Video by crafting precise prompts. The goal is to identify key elements within the Video and use these details to generate an Video as close as possible to the original.
@@ -42,6 +42,46 @@ Tools/LLMs for Video Generation:
 4.	Use the Selected Tool: Choose an Video generation model (e.g., DALL·E, Stable Diffusion, or MidJourney) and input the refined prompt.
 5.	Iterate and Adjust: If the initial result isn't quite right, adjust the prompt further based on the differences observed between the generated and original Video.
 6.	Save and Document: Save the generated Video and document your prompt alongside any observations on how the output compares to the original.
+
+# Procedure:
+
+### Stage 1: The Basic Prompt
+> **Text:** `"An explosion on Earth in space with other planets nearby."`
+* **Critique:** Too ambiguous. The AI could interpret this as a 2D cartoon, a low-quality schematic, or a distant flash. There is no specific style, motion, composition, or color direction.
+
+### Stage 2: The Refined Prompt
+> **Text:** `"A cinematic video of Earth exploding in deep space. Glowing orange magma cracks spreading across the blue planet surface. A large orange planet and moons visible in the background."`
+* **Critique:** Much better. It defines the color palette (orange, blue) and introduces the key visual element: the "magma cracks." However, it lacks camera direction, aspect ratio specifications, lighting nuances, and motion clarity.
+
+### Stage 3: The Detailed Prompt
+> **Text:** `"Vertical 9:16 cinematic shot from space. A massive cosmic explosion erupts on Earth's surface, sending physical rock debris into the vacuum. Bright orange lava veins branching out like lightning across the continents. High contrast lighting, bright sun in the corner casting lens flare, stars in the background."`
+* **Critique:** Introduces crucial composition constraints (`Vertical 9:16 shot`) and structural descriptions (`branching out like lightning`). It instructs the model on how to handle the physics of the explosion (`sending physical rock debris`).
+
+### Stage 4: The Final Production Prompt (Fine-Tuned)
+> **Text:** `"Cinematic 4k video, 9:16 vertical aspect ratio. Hyper-realistic space simulation of a catastrophic planetary impact on Earth. A massive, fiery shockwave erupts on the planet's surface, causing glowing molten magma veins and tectonic cracks to rapidly fracture and branch across the continents like fiery lightning. Intricate rock debris, dust, and embers eject into the vacuum of space. In the deep-space background, a massive orange gas giant and two small irregular moons are visible within a crisp starfield. Intense directional lighting from a distant sun in the upper-left creates a sharp lens flare and high-contrast planetary shadows. Moody, epic atmosphere, smooth 60fps physics simulation."`
+
+---
+
+
+https://github.com/user-attachments/assets/3e8322f1-1746-4c27-939a-cdac0cb3f9f8
+
+
+
+## 3. Comparison Report
+
+| Feature / Metric | Original Video (`Earth Blast`) | Generated Output (Predicted via Production Prompt) |
+| :--- | :--- | :--- |
+| **Aspect Ratio & Framing** | 9:16 Portrait (YouTube Short standard). | Perfectly matched using the `9:16 vertical aspect ratio` modifier. |
+| **Primary Visual Effect** | Magma branching through the crust. | Replicated cleanly via `"tectonic cracks rapidly fracture and branch across the continents like fiery lightning"`. |
+| **Depth & Background** | Layered planets: Earth, larger background planet, small moons. | Captured explicitly by describing foreground, midground, and background layers. |
+| **Lighting Fidelity** | High contrast, strong key light from the side. | Dictated by `"directional lighting from a distant sun... high-contrast planetary shadows"`. |
+| **Potential Deviations** | Specific placement of debris fragments. | **AI Volatility:** Diffusion models simulate fluid and debris physics dynamically; while the *presence* of debris matches, the exact trajectories will differ due to the random seed. |
+
+### Prompt Adjustments Made for Accuracy:
+1.  **The "Lightning" Analogy:** Simply stating "cracks" caused models to generate blocky, static fractures. Adding `branching... like fiery lightning` forced the AI to generate the thin, energetic, high-contrast pathways seen in the original video.
+2.  **Explicit Layering:** The phrase `In the deep-space background...` was vital to prevent the AI from merging the Earth and the orange background planet into a single, scrambled object.
+
+---
 
 # Deliverables:
 1.	The Original Video: Provided Video for reference.
